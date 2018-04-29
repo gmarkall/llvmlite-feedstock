@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.22.0" %}
-{% set sha256 = "a0a875f3d502f41f4a24444aa98fbf076a6bf36e2a0b3b4481b22e1c4a3acdc2" %}
+{% set version = "0.23.0" %}
+{% set sha256 = "bc8b1b46274d05b578fe9e980a6d98fa71c8727f6f9ed31d4d8468dce7aa5762" %}
 
 package:
   name: {{ name|lower }}
@@ -12,39 +12,35 @@ source:
   sha256: {{ sha256 }}
     
 build:
-  skip: True  # [win and py2k]
   number: 0
-  script: python setup.py install  --single-version-externally-managed --record=record.txt
+  script_env:
+    - PY_VCRUNTIME_REDIST
 
 requirements:
   build:
-    - cmake          # [win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
-    - setuptools
-    - enum34         # [py2k]
-    - llvmdev 5.0.0
+    # On channel https://anaconda.org/numba/
+    - llvmdev 6.0*
+    - vs2015_runtime [win]
+    # The DLL build uses cmake on Windows
+    - cmake          [win]
+    - enum34         [py27]
   run:
     - python
-    - enum34         # [py2k]
+    - enum34         [py27]
+    - vs2015_runtime [win]
 
 test:
   imports:
     - llvmlite
     - llvmlite.binding
-    - llvmlite.ir
-    - llvmlite.llvmpy
-    - llvmlite.tests
   commands:
     - python -m llvmlite.tests
 
 about:
-  home: http://llvmlite.pydata.org
-  license: BSD-2-clause
-  license_file: LICENSE
-  summary: A lightweight LLVM python binding for writing JIT compilers.
-  doc_url: http://llvmlite.pydata.org/
-  dev_url: https://github.com/numba/llvmlite
-
-extra:
-  recipe-maintainers:
-    - souravsingh
+  home: https://github.com/numba/llvmlite
+  license: New BSD License
+  summary: A lightweight LLVM python binding for writing JIT compilers
