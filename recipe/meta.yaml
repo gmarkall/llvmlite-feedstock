@@ -17,6 +17,9 @@ build:
   number: 0
   script_env:
     - PY_VCRUNTIME_REDIST
+  ignore_run_exports:
+    # Is static-linked
+    - xar
 
 requirements:
   build:
@@ -31,6 +34,7 @@ requirements:
     - cmake          [win]
     - enum34         [py27]
     - zlib
+    - xar # [osx]
   run:
     - python
     - enum34         [py27]
