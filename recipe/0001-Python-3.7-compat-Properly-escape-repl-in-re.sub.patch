@@ -57,7 +57,7 @@ index 0b40a4c..2dc6ed4 100644
  
          pattern = ''.join(map(escape, pattern))
 -        regex = re.sub(r'\s+', r'\s*', pattern)
-+        regex = re.sub(r'\s+', r'\\\s*', pattern)
++        regex = re.sub(r'\s+', r'\\s*', pattern)
          self.assertRegexpMatches(text, regex)
  
      def assert_ir_line(self, line, mod):
