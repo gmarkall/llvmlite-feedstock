@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.23.0" %}
-{% set sha256 = "bc8b1b46274d05b578fe9e980a6d98fa71c8727f6f9ed31d4d8468dce7aa5762" %}
+{% set version = "0.23.1" %}
+{% set build_number = "0" %}
 
 package:
   name: {{ name|lower }}
@@ -14,32 +14,33 @@ source:
     - 0001-Python-3.7-compat-Properly-escape-repl-in-re.sub.patch
     
 build:
-  number: 0
+  number: {{ build_number }}
   script_env:
     - PY_VCRUNTIME_REDIST
-  ignore_run_exports:
-    # Is static-linked
-    - xar
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    # We cannot do this on macOS as the llvm-config from the
+    # toolchain conflicts with the same from llvmdev, the
+    # build.sh deals with it!
+    - {{ compiler('c') }}    # [not osx]
+    - {{ compiler('cxx') }}  # [not osx]
   host:
     - python
     # On channel https://anaconda.org/numba/
     - llvmdev 6.0*
-    - vs2015_runtime [win]
+    - vs2015_runtime # [win]
     # The DLL build uses cmake on Windows
-    - cmake          [win]
-    - enum34         [py27]
-    - zlib
-    - xar # [osx]
+    - cmake          # [win]
+    - enum34         # [py27]
+    # llvmdev is built with libz compression support
+    - zlib           # [unix]
   run:
     - python
-    - enum34         [py27]
-    - vs2015_runtime [win]
-    - zlib
+    - enum34         # [py27]
+    - vs2015_runtime # [win]
+    # osx has dynamically linked libstdc++
+    - libcxx >=4.0.1 # [osx]
 
 test:
   imports:
