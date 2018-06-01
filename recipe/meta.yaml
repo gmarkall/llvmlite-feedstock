@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.23.0" %}
-{% set sha256 = "bc8b1b46274d05b578fe9e980a6d98fa71c8727f6f9ed31d4d8468dce7aa5762" %}
+{% set version = "0.23.2" %}
+{% set sha256 = "1e63f317b8fb3679d3a397920b1e8bade2d5f471f6c60c7e9bf97746f616f79e" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
     
 build:
   skip: True  # [win and py2k]
-  number: 1
+  number: 0
   script: python setup.py install  --single-version-externally-managed --record=record.txt
 
 requirements:
