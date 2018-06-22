@@ -1,5 +1,5 @@
 {% set name = "llvmlite" %}
-{% set version = "0.23.1" %}
+{% set version = "0.23.2" %}
 {% set build_number = "0" %}
 
 package:
