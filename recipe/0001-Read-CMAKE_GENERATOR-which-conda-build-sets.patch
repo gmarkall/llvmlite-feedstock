@@ -1,0 +1,31 @@
+From 06363c0db0de4ab126225b19e287774bcbec7b49 Mon Sep 17 00:00:00 2001
+From: Ray Donnelly <mingw.android@gmail.com>
+Date: Wed, 8 Aug 2018 14:11:07 +0100
+Subject: [PATCH] Read CMAKE_GENERATOR which conda-build sets
+
+---
+ ffi/build.py | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/ffi/build.py b/ffi/build.py
+index c5bd661..21b8065 100755
+--- a/ffi/build.py
++++ b/ffi/build.py
+@@ -53,9 +53,11 @@ def find_win32_generator():
+     # seems a bit lacking here.
+     cmake_dir = os.path.join(here_dir, 'dummy')
+     # LLVM 4.0+ needs VS 2015 minimum.
+-    for generator in ['Visual Studio 14 2015']:
+-        if is_64bit:
+-            generator += ' Win64'
++    generators = []
++    if os.environ.get("CMAKE_GENERATOR"):
++        generators.append(os.environ.get("CMAKE_GENERATOR"))
++    generators.append('Visual Studio 14 2015' + ' Win64' if is_64bit else '')
++    for generator in generators:
+         build_dir = tempfile.mkdtemp()
+         print("Trying generator %r" % (generator,))
+         try:
+-- 
+2.17.1
+
