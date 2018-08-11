@@ -22,7 +22,7 @@ requirements:
     - python
     - setuptools
     - enum34         # [py2k]
-    - llvmdev 6.0.0
+    - llvmdev 6.0.1
   run:
     - python
     - enum34         # [py2k]
