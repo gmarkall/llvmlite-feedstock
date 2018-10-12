@@ -12,8 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: {{ build_number }}
-  number: 1000
+  number: 1001
   script_env:
     - PY_VCRUNTIME_REDIST
 #  ignore_run_exports:
