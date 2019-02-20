@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.27.1" %}
-{% set sha256 = "ef222a5b14d883fe7cc7ff23a03c2c2d2f3312f3505eed71cf9d4feea6adf16d" %}
+{% set version = "0.27.0" %}
+{% set sha256 = "43aafc62a415d293fa2629b7fb2b114167b877dd1a4b00e9942c5b232a529bc9" %}
 
 package:
   name: {{ name|lower }}
@@ -8,13 +8,14 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/numba/{{ name }}/archive/v{{ version }}.tar.gz
+  # don't use github generated tar-ball as the sha256 value may not be stable
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 0
   script_env:
-    - PY_VCRUNTIME_REDIST
+    - PY_VCRUNTIME_REDIST    # [win]
   skip: true  # [win and py==27]
 
 requirements:
@@ -35,6 +36,7 @@ requirements:
     - enum34          # [py27]
     # llvmdev is built with libz compression support
     - zlib            # [unix]
+    - vs2015_runtime  # [win]
   run:
     - python
     - enum34          # [py27]
