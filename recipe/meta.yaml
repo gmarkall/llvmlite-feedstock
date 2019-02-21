@@ -36,7 +36,6 @@ requirements:
     - enum34          # [py27]
     # llvmdev is built with libz compression support
     - zlib            # [unix]
-    - vs2015_runtime  # [win]
   run:
     - python
     - enum34          # [py27]
