@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.26.0" %}
-{% set sha256 = "13e84fe6ebb0667233074b429fd44955f309dead3161ec89d9169145dbad2ebf" %}
+{% set version = "0.27.0" %}
+{% set sha256 = "43aafc62a415d293fa2629b7fb2b114167b877dd1a4b00e9942c5b232a529bc9" %}
 
 package:
   name: {{ name|lower }}
@@ -8,17 +8,15 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
+  # don't use github generated tar-ball as the sha256 value may not be stable
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1000
+  number: 0
   script_env:
-    - PY_VCRUNTIME_REDIST
-#  ignore_run_exports:
-#    - vs2017_win-64  # [win64]
-#    - vs2017_win-32  # [win32]
-#    - vc
+    - PY_VCRUNTIME_REDIST    # [win]
+  skip: true  # [win and py==27]
 
 requirements:
   build:
@@ -34,16 +32,13 @@ requirements:
     - make                   # [unix]
   host:
     - python
-    # On channel https://anaconda.org/numba/
-    - llvmdev 6.0*
-    - vs2015_runtime  # [win]
+    - llvmdev 7.0.*
     - enum34          # [py27]
     # llvmdev is built with libz compression support
     - zlib            # [unix]
   run:
     - python
     - enum34          # [py27]
-    - vs2015_runtime  # [win]
     # osx has dynamically linked libstdc++
     - libcxx >=4.0.1  # [osx]
 
