@@ -32,7 +32,7 @@ requirements:
     - make                   # [unix]
   host:
     - python
-    - llvmdev 7.0.*
+    - llvmdev 8.0.*
     - enum34          # [py27]
     # llvmdev is built with libz compression support
     - zlib            # [unix]
