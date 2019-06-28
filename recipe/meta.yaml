@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script_env:
     - PY_VCRUNTIME_REDIST    # [win]
   skip: true  # [win and py==27]
