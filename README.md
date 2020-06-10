@@ -3,7 +3,7 @@ About llvmlite
 
 Home: http://llvmlite.pydata.org
 
-Package license: BSD-2-clause
+Package license: BSD-2-Clause
 
 Feedstock license: BSD 3-Clause
 
