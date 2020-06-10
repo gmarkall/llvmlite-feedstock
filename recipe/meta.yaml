@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.32.0" %}
-{% set sha256 = "d65c645c32fae7b50852e80597eaef8369f826b75017d5c8d07c800e37eaed89" %}
+{% set version = "0.32.1" %}
+{% set sha256 = "41262a47b8cbba5a09203b15b65fbdf11192f92aa226c81e99115acdee8f3b8d" %}
 
 package:
   name: {{ name|lower }}
@@ -14,14 +14,13 @@ source:
 
 build:
   number: 0
-  skip: true  # [win and py==27]
+  skip: true  # [py2k]
 
 requirements:
   build:
-    - {{ compiler('c') }}    # [unix or (win and py==27)]
-    - {{ compiler('cxx') }}  # [unix or (win and py==27)]
-    - vs2017_win-64          # [win64 and py>27]
-    - vs2017_win-32          # [win32 and py>27]
+    - {{ compiler('c') }}            # [unix]
+    - {{ compiler('cxx') }}          # [unix]
+    - vs2017_{{ target_platform }}   # [win]
     # The DLL build uses cmake on Windows
     - cmake                  # [win]
     - make                   # [unix]
@@ -29,12 +28,10 @@ requirements:
     - python
     - llvmdev 8.0.*
     - llvm 8.0.*
-    - enum34          # [py27]
     # llvmdev is built with libz compression support
     - zlib            # [unix]
   run:
     - python
-    - enum34          # [py27]
 
 test:
   imports:
@@ -45,7 +42,7 @@ test:
 
 about:
   home: http://llvmlite.pydata.org
-  license: BSD-2-clause
+  license: BSD-2-Clause
   license_file: LICENSE
   summary: A lightweight LLVM python binding for writing JIT compilers.
   doc_url: http://llvmlite.pydata.org/
@@ -53,4 +50,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - jakirkham
     - souravsingh
