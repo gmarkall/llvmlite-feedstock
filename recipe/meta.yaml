@@ -29,7 +29,7 @@ requirements:
     - llvmdev 9.0.*
     - llvm 9.0.*
     # llvmdev is built with libz compression support
-    - zlib            # [unix]
+    - zlib
   run:
     - python
 
