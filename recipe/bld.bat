@@ -3,6 +3,7 @@ set CMAKE_PREFIX_PATH=%LIBRARY_PREFIX%
 set ZLIB_ROOT_DIR=%LIBRARY_PREFIX%
 set LLVM_CONFIG=%LIBRARY_PREFIX%/bin/llvm_config.exe
 set CMAKE_GENERATOR=Visual Studio 15 2017 Win64
+set ZLIB_NAME=zlib
 
 
 @rem Ensure there are no build leftovers (CMake can complain)
