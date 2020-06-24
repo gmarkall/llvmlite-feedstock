@@ -26,9 +26,7 @@ requirements:
     - make                   # [unix]
   host:
     - python
-    - llvmdev 9.0.*
-    - llvm 9.0.*
-    # llvmdev is built with libz compression support
+    - llvmdev 9.0.1
     - zlib
   run:
     - python
