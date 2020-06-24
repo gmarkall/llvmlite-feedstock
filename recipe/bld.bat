@@ -1,6 +1,9 @@
 @rem Let CMake know about the LLVM install path, for find_package()
 set CMAKE_PREFIX_PATH=%LIBRARY_PREFIX%
 set ZLIB_ROOT_DIR=%LIBRARY_PREFIX%
+set LLVM_CONFIG=%LIBRARY_PREFIX%/bin/llvm_config.exe
+
+dir %LIBRARY_PREFIX%/bin/
 
 @rem Ensure there are no build leftovers (CMake can complain)
 if exist ffi\build rmdir /S /Q ffi\build
