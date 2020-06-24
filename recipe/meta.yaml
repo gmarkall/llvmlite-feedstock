@@ -30,7 +30,7 @@ requirements:
     - zlib
   run:
     - python
-    - libcxx  # [unix]
+    - llvmdev 9.0.1
 
 test:
   imports:
