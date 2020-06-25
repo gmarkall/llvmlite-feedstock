@@ -6,6 +6,7 @@ set CMAKE_GENERATOR=Visual Studio 15 2017 Win64
 set ZLIB_NAME=zlib
 set ZLIB_LIBRARY_PATH=%LIBRARY_LIB%
 set ZLIB_INCLUDE=%LIBRARY_INC%
+SET LIBPATH=%LIBRARY_LIB%
 
 
 @rem Ensure there are no build leftovers (CMake can complain)
