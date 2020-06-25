@@ -8,6 +8,7 @@ set ZLIB_LIBRARY_PATH=%LIBRARY_LIB%
 set ZLIB_INCLUDE=%LIBRARY_INC%
 SET LIBPATH=%LIBRARY_LIB%
 set LLVM_ENABLE_ZLIB=ON
+set PREFIX=%LIBRARY_PREFIX%
 
 
 @rem Ensure there are no build leftovers (CMake can complain)
