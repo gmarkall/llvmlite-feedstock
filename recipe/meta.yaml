@@ -25,6 +25,7 @@ requirements:
     # The DLL build uses cmake on Windows
     - cmake                  # [win]
     - make                   # [unix]
+    - zlib  # [win]
   host:
     - python
     - llvmdev 9.0.1
