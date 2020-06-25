@@ -1,12 +1,12 @@
 diff --git a/ffi/CMakeLists.txt b/ffi/CMakeLists.txt
-index 87cf00c..734f312 100755
+index 87cf00c..7121cc2 100755
 --- a/ffi/CMakeLists.txt
 +++ b/ffi/CMakeLists.txt
 @@ -7,6 +7,7 @@ project(llvmlite_ffi)
  include(CheckIncludeFiles)
  
  find_package(LLVM REQUIRED CONFIG)
-+find_package(zlib REQUIRED)
++find_package("ZLIB" REQUIRED)
  
  message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
  message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
