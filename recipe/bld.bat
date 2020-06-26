@@ -16,7 +16,11 @@ if exist ffi\build rmdir /S /Q ffi\build
 
 llvm-config.exe --libs
 
-%PYTHON% -S setup.py install
+@rem %PYTHON% -S setup.py install
+@rem Trying to invoke cmake directly
+mkdir build
+cd build
+cmake --build ../ffi/ -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_RULE_MESSAGES=ON --config Release
 if errorlevel 1 exit 1
 
 %PYTHON% runtests.py
