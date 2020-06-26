@@ -20,7 +20,7 @@ llvm-config.exe --libs
 @rem Trying to invoke cmake directly
 mkdir build
 cd build
-cmake --build ../ffi/ -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_RULE_MESSAGES=ON --config Release
+cmake --build ../ffi/ --config Release --verbose
 if errorlevel 1 exit 1
 
 %PYTHON% runtests.py
