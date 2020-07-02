@@ -6,7 +6,7 @@ index 9c6eedf..360d4c3 100644
 +import sys
 +import os
 +
-+if sys.version_info >= (3, 8) and os.name:
++if sys.version_info >= (3, 8) and os.name == "nt":
 +    import sysconfig
 +    os.add_dll_directory(sysconfig.get_path("stdlib"))
 +
