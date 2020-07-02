@@ -32,7 +32,7 @@ requirements:
   run:
     - python
     - llvmdev 9.0.1
-    - zlib
+    - vs2017_{{ target_platform }}  # [win]
 
 test:
   imports:
