@@ -29,11 +29,12 @@ requirements:
     - python
     - llvmdev 9.0.1
     - zlib
-    - vs2015_runtime  # [win]
+    - vs2017_{{ target_platform }}  # [win]
   run:
     - python
     - llvmdev 9.0.1
-    - vs2015_runtime  # [win]
+    - zlib
+    - vs2017_{{ target_platform }}  # [win]
 
 test:
   imports:
