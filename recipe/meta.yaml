@@ -33,7 +33,7 @@ requirements:
   run:
     - python
     - llvmdev 9.0.1
-    - vs2015_runtime # [win]
+    - vs2015_runtime  # [win]
 
 test:
   imports:
