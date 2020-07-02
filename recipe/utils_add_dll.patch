@@ -1,8 +1,19 @@
 diff --git a/llvmlite/binding/__init__.py b/llvmlite/binding/__init__.py
-index 9c6eedf..d7f958c 100644
+index 9c6eedf..360d4c3 100644
 --- a/llvmlite/binding/__init__.py
 +++ b/llvmlite/binding/__init__.py
-@@ -13,4 +13,11 @@ from .transforms import *
+@@ -1,3 +1,10 @@
++import sys
++import os
++
++if sys.version_info >= (3, 8) and os.name:
++    import sysconfig
++    os.add_dll_directory(sysconfig.get_path("stdlib"))
++
+ """
+ Things that rely on the LLVM library
+ """
+@@ -13,4 +20,6 @@ from .transforms import *
  from .value import *
  from .analysis import *
  from .object_file import *
@@ -10,12 +21,7 @@ index 9c6eedf..d7f958c 100644
 \ No newline at end of file
 +from .context import *
 +
-+import sys
-+import os
 +
-+if sys.version_info >= (3, 8) and os.name:
-+    import sysconfig
-+    os.add_dll_directory(sysconfig.get_path("stdlib"))
 diff --git a/llvmlite/utils.py b/llvmlite/utils.py
 index e07ecd3..79b7d21 100644
 --- a/llvmlite/utils.py
