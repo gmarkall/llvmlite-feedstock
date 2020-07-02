@@ -1,0 +1,13 @@
+diff --git a/llvmlite/utils.py b/llvmlite/utils.py
+index e07ecd3..69f15bb 100644
+--- a/llvmlite/utils.py
++++ b/llvmlite/utils.py
+@@ -16,6 +16,8 @@ def get_library_name():
+             return 'libllvmlite.so'
+     else:
+         assert os.name == 'nt'
++        if sys.version_info >= (3, 8):
++            os.add_dll_directory(sysconfig.get_config_var('LIBDIR'))
+         return 'llvmlite.dll'
+ 
+ 
