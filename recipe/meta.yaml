@@ -15,7 +15,8 @@ source:
 
 build:
   number: 0
-  skip: true  # [py2k]
+  # testing just windows for now, after integration we should remove it
+  skip: true  # [py2k or not win]
 
 requirements:
   build:
