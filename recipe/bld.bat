@@ -9,7 +9,7 @@ set ZLIB_INCLUDE=%LIBRARY_INC%
 SET LIBPATH=%LIBRARY_LIB%
 set LLVM_ENABLE_ZLIB=ON
 set PREFIX=%LIBRARY_PREFIX%
-
+set "LDFLAGS=%LDFLAGS% /LIBPATH:%LIBRARY_LIB%"
 
 @rem Ensure there are no build leftovers (CMake can complain)
 if exist ffi\build rmdir /S /Q ffi\build
