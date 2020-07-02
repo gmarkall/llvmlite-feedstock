@@ -19,22 +19,21 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}            # [unix]
-    - {{ compiler('cxx') }}          # [unix]
-    - vs2017_{{ target_platform }}   # [win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     # The DLL build uses cmake on Windows
     - cmake                  # [win]
     - make                   # [unix]
   host:
     - python
-    - llvmdev 9.0.1
+    - llvmdev 9.0.*
     - zlib
-    - vs2017_{{ target_platform }}  # [win]
+    - vs2015_runtime  # [win]
   run:
     - python
-    - llvmdev 9.0.1
+    - llvmdev 9.0.*
     - zlib
-    - vs2017_{{ target_platform }}  # [win]
+    - vs2015_runtime  # [win]
 
 test:
   imports:
