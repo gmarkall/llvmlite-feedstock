@@ -1,37 +1,41 @@
 {% set name = "llvmlite" %}
-{% set version = "0.32.1" %}
-{% set sha256 = "41262a47b8cbba5a09203b15b65fbdf11192f92aa226c81e99115acdee8f3b8d" %}
+{% set version = "0.33.0" %}
+{% set sha256 = "9c8aae96f7fba10d9ac864b443d1e8c7ee4765c31569a2b201b3d0b67d8fc596" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   # don't use github generated tar-ball as the sha256 value may not be stable
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches: utils_add_dll.patch  # [win and py>=38]
 
 build:
   number: 0
-  skip: true  # [py2k]
+  script_env:
+    - PY_VCRUNTIME_REDIST
+  # testing just windows for now, after integration we should remove it
+  skip: true  # [py2k or not win]
 
 requirements:
   build:
-    - {{ compiler('c') }}            # [unix]
-    - {{ compiler('cxx') }}          # [unix]
-    - vs2017_{{ target_platform }}   # [win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     # The DLL build uses cmake on Windows
     - cmake                  # [win]
     - make                   # [unix]
   host:
     - python
-    - llvmdev 8.0.*
-    - llvm 8.0.*
-    # llvmdev is built with libz compression support
-    - zlib            # [unix]
+    - llvmdev 9.0.*
+    - zlib
+    - vs2015_runtime  # [win]
   run:
     - python
+    - llvmdev 9.0.*
+    - zlib
+    - vs2015_runtime  # [win]
 
 test:
   imports:
