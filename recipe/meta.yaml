@@ -17,7 +17,7 @@ build:
   script_env:
     - PY_VCRUNTIME_REDIST
   # testing just windows for now, after integration we should remove it
-  skip: true  # [py2k or not win]
+  skip: true  # [win and py==38]
 
 requirements:
   build:
@@ -56,3 +56,4 @@ extra:
   recipe-maintainers:
     - jakirkham
     - souravsingh
+    - marcelotrevisani
