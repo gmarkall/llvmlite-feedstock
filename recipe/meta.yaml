@@ -16,7 +16,6 @@ build:
   number: 0
   script_env:
     - PY_VCRUNTIME_REDIST
-  # testing just windows for now, after integration we should remove it
   skip: true  # [win and py==38]
 
 requirements:
