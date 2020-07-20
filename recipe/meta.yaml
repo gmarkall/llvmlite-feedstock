@@ -13,7 +13,7 @@ source:
   patches: utils_add_dll.patch  # [win and py>=38]
 
 build:
-  number: 0
+  number: 1
   script_env:
     - PY_VCRUNTIME_REDIST
 
