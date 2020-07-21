@@ -28,8 +28,8 @@ requirements:
     - make                   # [unix]
   host:
     - python
-    - llvmdev 9.0.*  # [win]
-    - llvm 9.0.*     # [not win]
+    - llvmdev 9.0.*
+    - llvm 9.0.*
     - zlib
     - vs2015_runtime  # [win]
   run:
