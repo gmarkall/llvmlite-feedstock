@@ -271,4 +271,5 @@ Feedstock Maintainers
 * [@jakirkham](https://github.com/jakirkham/)
 * [@marcelotrevisani](https://github.com/marcelotrevisani/)
 * [@souravsingh](https://github.com/souravsingh/)
+* [@xhochy](https://github.com/xhochy/)
 
