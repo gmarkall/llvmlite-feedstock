@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.33.0" %}
-{% set sha256 = "9c8aae96f7fba10d9ac864b443d1e8c7ee4765c31569a2b201b3d0b67d8fc596" %}
+{% set version = "0.34.0" %}
+{% set sha256 = "f03ee0d19bca8f2fe922bb424a909d05c28411983b0c2bc58b020032a0d11f63" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
   patches: utils_add_dll.patch  # [win and py>=38]
 
 build:
-  number: 1
+  number: 0
   script_env:
     - PY_VCRUNTIME_REDIST
   # testing just windows for now, after integration we should remove it
@@ -28,8 +28,8 @@ requirements:
     - make                   # [unix]
   host:
     - python
-    - llvmdev 9.0.*
-    - llvm 9.0.*
+    - llvmdev 10.0.*
+    - llvm 10.0.*
     - zlib
     - vs2015_runtime  # [win]
   run:
