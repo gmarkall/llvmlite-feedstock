@@ -1,13 +1,15 @@
 diff --git a/llvmlite/binding/ffi.py b/llvmlite/binding/ffi.py
-index 3f53b2a..0361c2d 100644
+index 3f53b2a..1c54fec 100644
 --- a/llvmlite/binding/ffi.py
 +++ b/llvmlite/binding/ffi.py
-@@ -146,6 +146,8 @@ for _lib_path in _lib_paths:
+@@ -146,6 +146,10 @@ for _lib_path in _lib_paths:
      try:
          lib = ctypes.CDLL(_lib_path)
      except OSError:
 +        from traceback import print_exc
 +        print_exc()
++        from subprocess import run
++        run(['dumpbin', '/dependents', _lib_path])
          continue
      else:
          break
