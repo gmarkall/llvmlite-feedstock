@@ -2,11 +2,10 @@
 
 set -x
 
-DARWIN_TARGET=$macos_machine
-
 export PYTHONNOUSERSITE=1
 
-export LLVM_CONFIG="${PREFIX}/bin/llvm-config"
+export LLVMLITE_USE_CMAKE=1
+export LLVMLITE_SHARED=1
 
 $PYTHON setup.py build --force
 $PYTHON setup.py install
