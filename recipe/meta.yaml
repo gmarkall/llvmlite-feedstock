@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.35.0" %}
-{% set sha256 = "80e51d5aa02ad72da9870e89d21f9b152b0220ca551b4596a6c0614bcde336fc" %}
+{% set version = "0.36.0" %}
+{% set sha256 = "765128fdf5f149ed0b889ffbe2b05eb1717f8e20a5c87fa2b4018fbcce0fcfc9" %}
 
 package:
   name: {{ name|lower }}
@@ -12,10 +12,9 @@ source:
   sha256: {{ sha256 }}
   patches:
     - 0001-Add-add_dll_directory-for-LIBRARY_BIN-for-Py38-on-Windows.patch  # [win and py>=38]
-    - 0001-Support-building-with-CMake-on-posix-systems.patch
 
 build:
-  number: 1
+  number: 0
   script_env:
     - PY_VCRUNTIME_REDIST
 
