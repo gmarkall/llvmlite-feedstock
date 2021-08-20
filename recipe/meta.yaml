@@ -15,6 +15,7 @@ source:
 
 build:
   number: 0
+  skip: true  # [py<37]
   script_env:
     - PY_VCRUNTIME_REDIST
 
@@ -28,8 +29,8 @@ requirements:
     - make                   # [unix]
   host:
     - python
-    - llvmdev 10.0.*
-    - llvm 10.0.*
+    - llvmdev 11.1.*
+    - llvm 11.1.*
     - zlib
     - vs2015_runtime  # [win]
   run:
