@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.37.0" %}
-{% set sha256 = "6392b870cd018ec0c645d6bbb918d6aa0eeca8c62674baaee30862d6b6865b15" %}
+{% set version = "0.38.0" %}
+{% set sha256 = "a99d166ccf3b116f3b9ed23b9b70ba2415640a9c978f3aaa13fad49c58f4965c" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
     - 0001-Add-add_dll_directory-for-LIBRARY_BIN-for-Py38-on-Windows.patch  # [win and py>=38]
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<37]
   script_env:
     - PY_VCRUNTIME_REDIST
