@@ -1,0 +1,34 @@
+From e3648a827115539c368ee13d8b791f45d1afea69 Mon Sep 17 00:00:00 2001
+From: John Kirkham <jakirkham@gmail.com>
+Date: Fri, 12 Aug 2022 09:31:14 -0700
+Subject: [PATCH] Disable `test_libm` on macOS
+
+---
+ llvmlite/tests/test_binding.py | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/llvmlite/tests/test_binding.py b/llvmlite/tests/test_binding.py
+index 28b2f5f..b3018c8 100644
+--- a/llvmlite/tests/test_binding.py
++++ b/llvmlite/tests/test_binding.py
+@@ -1633,14 +1633,11 @@ class TestDylib(BaseTest):
+         with self.assertRaises(RuntimeError):
+             llvm.load_library_permanently("zzzasdkf;jasd;l")
+ 
+-    @unittest.skipUnless(platform.system() in ["Linux", "Darwin"],
+-                         "test only works on Linux and Darwin")
++    @unittest.skipUnless(platform.system() in ["Linux"],
++                         "test only works on Linux")
+     def test_libm(self):
+         system = platform.system()
+-        if system == "Linux":
+-            libm = find_library("m")
+-        elif system == "Darwin":
+-            libm = find_library("libm")
++        libm = find_library("m")
+         llvm.load_library_permanently(libm)
+ 
+ 
+-- 
+2.37.1
+
