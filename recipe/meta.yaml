@@ -15,7 +15,7 @@ source:
     - patches/0001-Disable-test_libm-on-macOS.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37]
   script_env:
     - PY_VCRUNTIME_REDIST
@@ -36,7 +36,6 @@ requirements:
     - vs2015_runtime  # [win]
   run:
     - python
-    - zlib
     - vs2015_runtime  # [win]
 
 test:
