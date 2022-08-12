@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.38.1" %}
-{% set sha256 = "0622a86301fcf81cc50d7ed5b4bebe992c030580d413a8443b328ed4f4d82561" %}
+{% set version = "0.39.0" %}
+{% set sha256 = "01098be54f1aa25e391cebba8ea71cd1533f8cd1f50e34c7dd7540c2560a93af" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,8 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 0001-Add-add_dll_directory-for-LIBRARY_BIN-for-Py38-on-Windows.patch  # [win and py>=38]
+    # https://github.com/conda-forge/llvmlite-feedstock/pull/62#issuecomment-1209762518
+    - patches/0001-Disable-test_libm-on-macOS.patch
 
 build:
   number: 0
