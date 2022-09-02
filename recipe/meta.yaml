@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.39.0" %}
-{% set sha256 = "01098be54f1aa25e391cebba8ea71cd1533f8cd1f50e34c7dd7540c2560a93af" %}
+{% set version = "0.39.1" %}
+{% set sha256 = "b43abd7c82e805261c425d50335be9a6c4f84264e34d6d6e475207300005d572" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
     - patches/0001-Disable-test_libm-on-macOS.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<37]
   script_env:
     - PY_VCRUNTIME_REDIST
