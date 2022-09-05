@@ -10,9 +10,6 @@ source:
   # don't use github generated tar-ball as the sha256 value may not be stable
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    # https://github.com/conda-forge/llvmlite-feedstock/pull/62#issuecomment-1209762518
-    - patches/0001-Disable-test_libm-on-macOS.patch
 
 build:
   number: 0
