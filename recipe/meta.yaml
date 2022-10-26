@@ -28,6 +28,7 @@ requirements:
   host:
     - python
     - setuptools
+    - packaging
     - wheel
     - llvmdev 11.1.*
     - llvm 11.1.*
