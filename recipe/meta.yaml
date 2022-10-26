@@ -27,6 +27,8 @@ requirements:
     - make                   # [unix]
   host:
     - python
+    - setuptools
+    - wheel
     - llvmdev 11.1.*
     - llvm 11.1.*
     - zlib
