@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37]
   script_env:
     - PY_VCRUNTIME_REDIST
@@ -27,6 +27,7 @@ requirements:
     - make                   # [unix]
   host:
     - python
+    - setuptools
     - llvmdev 11.1.*
     - llvm 11.1.*
     - zlib
