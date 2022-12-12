@@ -1,13 +1,13 @@
 {% set name = "llvmlite" %}
-{% set version = "0.40.0a0" %}
-{% set sha256 = "0d2399ccb6ae91fb6217935346b5c7e7a568f6a13b7e88d237cdf2252f728b85" %}
+{% set version = "0.40.0a1" %}
+{% set sha256 = "7f4faa22f7ae702c54bf6331e85676950a14dcfe50c790a64793c330016681cd" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/gmarkall/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/gmarkall/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
