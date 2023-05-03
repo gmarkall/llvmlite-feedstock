@@ -28,8 +28,8 @@ requirements:
   host:
     - python
     - setuptools
-    - llvmdev 11.1.*
-    - llvm 11.1.*
+    - llvmdev 14.0.*
+    - llvm 14.0.*
     - zlib
     - vs2015_runtime  # [win]
   run:
