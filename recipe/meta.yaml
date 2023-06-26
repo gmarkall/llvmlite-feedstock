@@ -10,13 +10,6 @@ source:
   # don't use github generated tar-ball as the sha256 value may not be stable
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    #####################################################
-    # Apply patch to fix PyPy variadiac arguments bug.  #
-    #                                                   #
-    # xref: https://github.com/numba/llvmlite/pull/945  #
-    #####################################################
-    - patches/PR_945.patch
 
 build:
   number: 0
