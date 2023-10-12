@@ -1,5 +1,5 @@
 {% set name = "llvmlite" %}
-{% set version = "0.41-skip-orcjit" %}
+{% set version = "0.41.skiporcjit" %}
 {% set sha256 = "50f89226d2c208c6d24ef157af79fdc0cf5f7eb12bae9f568537ed1b5cc9a930" %}
 
 package:
