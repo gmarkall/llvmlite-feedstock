@@ -1,13 +1,13 @@
 {% set name = "llvmlite" %}
-{% set version = "0.41.skiporcjit" %}
-{% set sha256 = "50f89226d2c208c6d24ef157af79fdc0cf5f7eb12bae9f568537ed1b5cc9a930" %}
+{% set version = "0.41.0_skip_orcjit_and_pypy" %}
+{% set sha256 = "68fbe72f445632e02f3a091c8501ff8f8f954ce0c959414d6abae72a53d3c7f3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/gmarkall/llvmlite/archive/refs/tags/0.41-skip-orcjit.tar.gz
+  url: https://github.com/gmarkall/llvmlite/archive/refs/tags/{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
