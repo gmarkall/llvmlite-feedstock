@@ -1,14 +1,13 @@
 {% set name = "llvmlite" %}
-{% set version = "0.41.0" %}
-{% set sha256 = "7d41db345d76d2dfa31871178ce0d8e9fd8aa015aa1b7d4dab84b5cb393901e0" %}
+{% set version = "0.41-skip-orcjit" %}
+{% set sha256 = "50f89226d2c208c6d24ef157af79fdc0cf5f7eb12bae9f568537ed1b5cc9a930" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  # don't use github generated tar-ball as the sha256 value may not be stable
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/gmarkall/llvmlite/archive/refs/tags/0.41-skip-orcjit.tar.gz
   sha256: {{ sha256 }}
 
 build:
