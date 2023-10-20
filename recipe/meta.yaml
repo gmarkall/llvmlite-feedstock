@@ -16,7 +16,8 @@ build:
   skip: true  # [py<37]
   script_env:
     - PY_VCRUNTIME_REDIST
-    - CFLAGS="-D_LIBCPP_DISABLE_AVAILABILITY"  # [osx]
+    - CFLAGS=-D_LIBCPP_DISABLE_AVAILABILITY    # [osx]
+    - CXXFLAGS=-D_LIBCPP_DISABLE_AVAILABILITY  # [osx]
 
 requirements:
   build:
