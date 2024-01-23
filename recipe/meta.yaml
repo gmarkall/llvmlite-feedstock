@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/numba/llvmlite/archive/refs/tags/v0.42.0rc1.tar.gz
+  url: https://github.com/numba/llvmlite/archive/refs/tags/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
