@@ -7,8 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  # don't use github generated tar-ball as the sha256 value may not be stable
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/numba/llvmlite/archive/refs/tags/v0.42.0rc1.tar.gz
   sha256: {{ sha256 }}
 
 build:
