@@ -1,3 +1,5 @@
+@echo on
+
 @rem Let CMake know about the LLVM install path, for find_package()
 set CMAKE_PREFIX_PATH=%LIBRARY_PREFIX%
 set "LLVM_CONFIG=%LIBRARY_PREFIX%\bin\llvm_config.exe"
@@ -16,7 +18,7 @@ if exist ffi\build rmdir /S /Q ffi\build
 
 llvm-config.exe --libs
 
-%PYTHON% -S setup.py install
+%PYTHON% setup.py install
 if errorlevel 1 exit 1
 
 %PYTHON% runtests.py
