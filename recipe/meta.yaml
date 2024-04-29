@@ -1,14 +1,13 @@
 {% set name = "llvmlite" %}
-{% set version = "0.42.0" %}
-{% set sha256 = "f92b09243c0cc3f457da8b983f67bd8e1295d0f5b3746c7a1861d7a99403854a" %}
+{% set version = "0.43.0dev1" %}
+{% set sha256 = "3adb68ba5e488c8c543c8962ddccf200297f5641eacf895cd6da3583718c02e3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  # don't use github generated tar-ball as the sha256 value may not be stable
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/gmarkall/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
