@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.43.0rc1" %}
-{% set sha256 = "0218e490f3eb889fe7269d3fae36da4e37a98f4482690b6be77c577390839c7e" %}
+{% set version = "0.43.0" %}
+{% set sha256 = "ae2b5b5c3ef67354824fb75517c8db5fbe93bc02cd9671f3c62271626bc041d5" %}
 
 package:
   name: {{ name|lower }}
