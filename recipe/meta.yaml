@@ -1,6 +1,6 @@
 {% set name = "llvmlite" %}
-{% set version = "0.43.0" %}
-{% set sha256 = "ae2b5b5c3ef67354824fb75517c8db5fbe93bc02cd9671f3c62271626bc041d5" %}
+{% set version = "0.44.0rc1" %}
+{% set sha256 = "3b9f00270f2a4a09756e0d1f505894e76ef3a55df960fddbcfa5687569fd1a9e" %}
 
 package:
   name: {{ name|lower }}
@@ -28,8 +28,8 @@ requirements:
   host:
     - python
     - setuptools
-    - llvmdev 14.0.*
-    - llvm 14.0.*
+    - llvmdev 15.0.*
+    - llvm 15.0.*
     - zlib
     - vs2015_runtime  # [win]
   run:
